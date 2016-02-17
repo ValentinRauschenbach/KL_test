@@ -95,8 +95,6 @@ for url in links:
     props[-1].update({'Фотография ' + str(i + 1): photo_url[i] for i in range(len(photo_url))})
     props[-1].update({props_names[i]: props_values[i] for i in range(len(props_names) - 1)})
 
-# Converting all collected data to a DataFrame object, replace NaN values with negative value and
-# writing it to an existing Excel file
+# Converting all collected data to a DataFrame object and writing it to an existing Excel file
 dt = pandas.DataFrame(props, index=np.array(product_names))
-dt = dt.fillna('нет')
 dt.to_excel('C:\output.xlsx', sheet_name='Smatrphones')\
